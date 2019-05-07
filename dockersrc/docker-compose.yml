@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  Inception:
+    image: percona/percona-server:5.7.25
+    container_name: inception
+    restart: always
+    ports:
+      - 3310:3310
+    volumes:
+    # bind mount my local my.cnf
+      - $PWD/inc.cnf:/etc/inc.cnf
+
+  MySQL:
+    image: percona/percona-server:5.7.25
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: welcome
+      MYSQL_USER: inception
+      MYSQL_PASSWORD: inception
+    ports:
+      - 3306:3306
+    volumes:
+    # create volumes for use
+      - /data1/mysql3306:/var/lib/mysql
+    # bind mount my local my.cnf
+      - $PWD/my.cnf:/etc/my.cnf
+    command:
+    # Workaround for no my.cnf in image
+      - '--user=mysql'
