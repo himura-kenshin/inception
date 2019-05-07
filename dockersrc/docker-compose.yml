@@ -2,7 +2,7 @@ version: '3'
 
 services:
   Inception:
-    image: percona/percona-server:5.7.25
+    image: himuradba/inception
     container_name: inception
     restart: always
     ports:
