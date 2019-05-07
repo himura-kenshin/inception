@@ -11,7 +11,7 @@ https://inception-document.readthedocs.io/zh_CN/latest/
 
 #### 指定配置文件和端口启动
 ```
-docker run --name inception -v /local_path/inc.cnf:/etc/inc.cnf  -dti hhyo/inception
+docker run --name inception -v /local_path/inc.cnf:/etc/inc.cnf  -dti himuradba/inception
 ```
 #### 访问
 ```
