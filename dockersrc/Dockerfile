@@ -1,10 +1,10 @@
 FROM docker.io/centos:7
 
-RUN mkdir -p /opt/inception
-ADD . /opt/inception
 #inception
 RUN yum -y install wget git gcc gcc-c++ make cmake openssl-devel ncurses-devel m4\
-    && rpm -i /opt/inception/dockersrc/bison-2.7-4.el7.x86_64.rpm \  
+    && cd /opt \
+    && git clone https://github.com/himura-kenshin/inception.git \
+    && rpm -i /opt/inception/dockersrc/bison-2.7-4.el7.x86_64.rpm \
     && mv /opt/inception/dockersrc/inc.cnf /etc \
     && cd /opt/inception \
     && ./inception_build.sh debug \
