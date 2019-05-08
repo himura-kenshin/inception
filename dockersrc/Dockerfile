@@ -1,4 +1,4 @@
-FROM docker.io/centos:7
+FROM himuradba/centos
 
 #inception
 RUN yum -y install wget git gcc gcc-c++ make cmake openssl-devel ncurses-devel m4\
